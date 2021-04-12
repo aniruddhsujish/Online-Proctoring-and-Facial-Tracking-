@@ -38,7 +38,7 @@ class VideoCamera(object):
                 text = "Looking right"
             elif gaze.is_left():
                 text = "Looking left"'''
-        
+ 
         cv2.putText(image, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (147, 58, 31), 2)
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes(),text

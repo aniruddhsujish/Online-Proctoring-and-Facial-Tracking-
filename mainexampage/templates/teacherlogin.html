@@ -182,6 +182,7 @@
                 <input type="password" id="password" name="password">
                 <!-- <a href="exam"> -->
       <input type="submit" name="submit" id="submit" value="Submit"/>
+      <span id="error" style="color: red"></span>
      <!-- </a> -->
     <form>
                 <!-- <input type="submit" id="submit" value="Submit"> -->
@@ -191,6 +192,12 @@
 </div>
 <script>
     let current = null;
+
+    let error_msg='{{error_msg}}';
+
+    if (error_msg.length!==0){
+        document.getElementById("error").innerHTML=error_msg
+    }
     document.querySelector('#email').addEventListener('focus', function(e) {
         if (current) current.pause();
         current = anime({
