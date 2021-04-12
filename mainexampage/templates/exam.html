@@ -51,7 +51,7 @@
     <!-- <h1 align="center">General Knowledge Quiz</h1> -->
     <div class="border border-dark shadow-lg p-4  mt-4 mb-4 bg-white">
     <h4> Answer the questions carefully</h4>
-    <span><img id="bg" class="float-right" src="{{ url_for('video_feed') }}" alt="video stream not working"></span>
+    <span><img id="bg" class="float-right" alt="video stream not working"></span>
     <!-- <form method="POST" action="C:\Users\Maheysh V\Desktop\STUDY\VideoStreamingFlask-master\templates\results.php"> -->
           <!-- dd_Qsn Number-dropdown -->
     <form method="GET" action="/home">
@@ -179,5 +179,33 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-light">
       Vitexam
     </nav>
+    <script type="text/javascript">
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      $(document).ready(function(){
+        var em = getCookie('email');
+        
+        var res = '/video_feed/'.concat(em);
+       
+        //window.alert(res)
+        $('#bg').attr('src',res);
+      });
+      
+    </script>
   </body>
 </html>
