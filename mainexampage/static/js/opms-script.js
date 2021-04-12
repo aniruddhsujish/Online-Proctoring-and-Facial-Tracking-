@@ -1,7 +1,7 @@
-const initBg = (autoplay = true) => {
+const initBg = autoplay => {
   const bgImgsNames = ['bg_img_4.jpg', 'bg_img_2.jpg', 'bg_img_3.jpg'];
-  const bgImgs = bgImgsNames.map(img => {{ url_for('img',filename='') }} + img);
-
+  //const bgImgs = bgImgsNames.map(img => {{ url_for('img',filename='') }} + img);
+  const bgImgs = bgImgsNames.map((img) => '/static/img/' + img);
     $.backstretch(bgImgs, {duration: 4000, fade: 500});
 
     if(!autoplay) {
@@ -29,7 +29,7 @@ const setBgOverlay = () => {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function(){
     const autoplayBg = true;	// set Auto Play for Background Images
     initBg(autoplayBg);
     setBgOverlay();

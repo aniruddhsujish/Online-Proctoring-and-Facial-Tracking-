@@ -8,7 +8,7 @@
     <title>OPMS - About Page</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
     <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
-    <link href="{{ url_for('static',filename='fontawesome/css/all.min.css') }}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
+    <link href="{{ url_for('static',filename='css/all.min.css') }}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
     <link href="{{ url_for('static',filename='css/OPMS.css') }}" rel="stylesheet" />
 
 </head>
@@ -125,9 +125,9 @@ examinations and human labour.</p>
         </div>
     </div>
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.backstretch.min.js"></script>
-    <script src="js/opms-script.js"></script>
+    <script src="{{ url_for('static',filename='js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/jquery.backstretch.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/opms-script.js') }}"></script>
 </body>
 </html>

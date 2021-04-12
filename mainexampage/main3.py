@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template,redirect, request, Response
 from camera import VideoCamera
 import os
@@ -6,7 +7,7 @@ import mysql.connector
 #import pyrebase
 app = Flask(__name__)
 #app.secret_key=os.urandom(24)
-conn=mysql.connector.connect(host="remotemysql.com",user="",password="",database="")
+conn=mysql.connector.connect(host="remotemysql.com",user="B2cfkZqKMi",password="NoM3V5RW8q",database="B2cfkZqKMi")
 #enter valid credentials from onlinemysql
 cursor=conn.cursor()
 
@@ -30,6 +31,11 @@ def contact():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/teacher')
+def teacher():
+    return render_template('teacherlogin.html')
+
 @app.route('/exam')
 def exam():
     return render_template('newindex.html')
@@ -55,6 +61,19 @@ def login_validation():
         return render_template('newindex.html')
     else:
         return render_template('login.html')
+
+@app.route('/teacher_login_validation',methods=['POST','GET'])
+def teacher_login_validation():
+    email=request.form.get('email')
+    password=request.form.get('password')
+    cursor.execute("""SELECT * FROM `teacher_login` WHERE `email` LIKE '{}' AND `password` LIKE '{}'""".format(email,password)) 
+    login=cursor.fetchall()
+    
+    if len(login)>0:
+        return render_template('newindexteacher.html')
+    else:
+        return render_template('teacherlogin.html')
+
 
   
     

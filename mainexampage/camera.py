@@ -11,16 +11,32 @@ class VideoCamera(object):
         self.video.release()
     
     def get_frame(self):
-        '''success, image = self.video.read()
+        success, image = self.video.read()
         image=cv2.resize(image,None,fx=ds_factor,fy=ds_factor,interpolation=cv2.INTER_AREA)
         gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
         face_rects=face_cascade.detectMultiScale(gray,1.3,5)
-        for (x,y,w,h) in face_rects:
-        	cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
-        	break
+        text = ""
+        if len(face_rects) == 0:
+            text = "No Face"
+        elif len(face_rects) > 1:
+            text = "Multiple Faces"
+        else: 
+
+            for (x,y,w,h) in face_rects:
+            	cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
+            	break
+            '''gaze = GazeTracking()
+            gaze.refresh(image)
+            image = gaze.annotated_frame()
+            if gaze.is_right():
+                text = "Looking right"
+            elif gaze.is_left():
+                text = "Looking left"'''
+        
+        cv2.putText(image, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (147, 58, 31), 2)
         ret, jpeg = cv2.imencode('.jpg', image)
-        return jpeg.tobytes()'''
-        gaze = GazeTracking()
+        return jpeg.tobytes()
+        """gaze = GazeTracking()
         webcam = cv2.VideoCapture(0)
         
         while True:
@@ -54,6 +70,6 @@ class VideoCamera(object):
                 break'''
             #comment lower part and decomment upper part for unique tab
             ret, jpeg = cv2.imencode('.jpg', frame)
-            return jpeg.tobytes()
+            return jpeg.tobytes()"""
         
 
