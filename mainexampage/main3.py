@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template,redirect, request, Response
+from flask import Flask, render_template,redirect, request, Response, make_response
 from camera import VideoCamera
 import os
 from gevent.pywsgi import WSGIServer
@@ -38,7 +38,7 @@ def teacher():
 
 @app.route('/exam')
 def exam():
-    return render_template('newindex.html')
+    return render_template('exam.html')
 
 @app.route('/marks',methods=['POST','GET'])
 def marks():
@@ -58,7 +58,9 @@ def login_validation():
     login=cursor.fetchall()
     
     if len(login)>0:
-        return render_template('newindex.html')
+        resp = make_response(render_template('newindex.html'))
+        resp.set_cookie("email",email)
+        return resp
     else:
         return render_template('login.html')
 
@@ -70,7 +72,10 @@ def teacher_login_validation():
     login=cursor.fetchall()
     
     if len(login)>0:
-        return render_template('newindexteacher.html')
+        resp = make_response(render_template('newindexteacher.html'))
+        resp.set_cookie("email",email)
+        return resp
+        #return render_template('newindexteacher.html')
     else:
         return render_template('teacherlogin.html')
 
