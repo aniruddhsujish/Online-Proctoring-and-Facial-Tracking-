@@ -14,10 +14,9 @@ class VideoCamera(object):
     def get_frame(self):
         success, image = self.video.read()
         self.count+=1
-        while(self.count%60 != 0):
+        while(self.count%120 != 0):
             success, image = self.video.read()
             self.count+=1
-        print(self.count)
         image=cv2.resize(image,None,fx=ds_factor,fy=ds_factor,interpolation=cv2.INTER_AREA)
         gray=cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
         face_rects=face_cascade.detectMultiScale(gray,1.3,5)
@@ -39,7 +38,7 @@ class VideoCamera(object):
             elif gaze.is_left():
                 text = "Looking left"'''
  
-        cv2.putText(image, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (147, 58, 31), 2)
+        #cv2.putText(image, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (147, 58, 31), 2)
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes(),text
         """gaze = GazeTracking()

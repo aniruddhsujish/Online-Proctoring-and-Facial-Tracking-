@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>OPMS - About Page</title>
+    <title>NITxAM</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
     <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
     <link href="{{ url_for('static',filename='css/all.min.css') }}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
@@ -21,7 +21,7 @@
                     <div class="tm-site-header media">
                         <i class="fas fa-graduation-cap"></i>
                         <div class="media-body">
-                            <h1 class="tm-sitename text-uppercase">VITxAM</h1>
+                            <h1 class="tm-sitename text-uppercase">NITxAM</h1>
                             <p class="tm-slogon">Online Proctoring System</p>
                         </div>
                     </div>
@@ -44,8 +44,14 @@
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="contact">Contact</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="login">Login</a>
+                                <li class="dropdown">
+                                    
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login
+                                        <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="login">Student</a></li>
+                                            <li><a href="teacher">Teacher</a></li>
+                                        </ul>
                                 </li>
 
                             </ul>
@@ -58,7 +64,7 @@
                 <div class="tm-col-left"></div>
                 <main class="tm-col-right">
                     <section class="tm-content tm-about">
-                        <h2 class="mb-5 tm-content-title">About OPMS </h2>
+                        <h2 class="mb-5 tm-content-title">About NITxAM </h2>
                         <hr class="mb-4">
                         <div class="media my-3">
                             <i class="fas fa-shapes fa-3x p-3 mr-4"></i>
@@ -111,7 +117,7 @@ examinations and human labour.</p>
             </div>
             <div class="tm-col-right tm-col-footer">
                 <footer class="tm-site-footer text-right">
-                    <p class="mb-0">Copyright 2020 VITxAM Co.
+                    <p class="mb-0">Copyright 2020 NITxAM Co.
 
                     <!-- | Design: <a rel="nofollow" target="_parent" href="https://opms.com" class="tm-text-link">opms</a></p> -->
                 </footer>
