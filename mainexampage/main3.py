@@ -6,6 +6,9 @@ from gevent.pywsgi import WSGIServer
 import mysql.connector
 import sys
 from datetime import datetime
+
+
+
 #import pyrebase
 app = Flask(__name__)
 #app.secret_key=os.urandom(24)
@@ -42,6 +45,13 @@ def teacher():
 def exam():
     return render_template('exam.html')
 
+@app.route('/proctoring', methods= ['GET'])
+def proctoring():
+	cur = conn.cursor()
+	cur.execute("SELECT * FROM alerts")
+	data = cur.fetchall()
+	return render_template('proctoring.html', data=data)
+
 @app.route('/marks',methods=['POST','GET'])
 def marks():
     marks=request.form.get('marks')
@@ -64,7 +74,7 @@ def login_validation():
         resp.set_cookie("email",email)
         return resp
     else:
-        return render_template('login.html')
+        return render_template('login.html', error_msg="Incorrect username or password. Try again.")
 
 @app.route('/teacher_login_validation',methods=['POST','GET'])
 def teacher_login_validation():
@@ -79,14 +89,11 @@ def teacher_login_validation():
         return resp
         #return render_template('newindexteacher.html')
     else:
-        return render_template('teacherlogin.html')
+        return render_template('teacherlogin.html', error_msg="Incorrect username or password. Try again.")
 
 
-  
-    
 def gen(camera,email):
     while True:
-        frame,alert = camera.get_frame()
         
         if not alert == "": 
             now = datetime.now()
@@ -98,6 +105,7 @@ def gen(camera,email):
 
 @app.route('/video_feed/<email>')
 def video_feed(email):
+
     return Response(gen(VideoCamera(),email),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
