@@ -2,9 +2,9 @@
 Title: Online Proctoring and facial tracking
 
 Team members:
-1. V Maheysh-19BCE1120
-2. V.V.Vaishnavi-19BCE1497
-3. S SuriyaKrishnan- 19BCE1050
+1. Aniruddh Sujish
+2. Mansi Saxena
+3. Meghna Kashyap
 
 
 Description:
