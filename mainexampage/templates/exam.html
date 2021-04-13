@@ -19,6 +19,19 @@ body{
 }
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 
+.submit {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
 </style>
 
 <body>
@@ -31,43 +44,23 @@ body{
 <div class="w3-row-padding w3-white w3-padding-64 w3-container">
   <div class="w3-content">
     <h1 style="color: red; text-align: center;">Attempt every question.</h1>
-    <h1 style="text-align: center;">Click on 'Finish Exam' once done.</h1><br><br>
-    <div class="w3-twothird" style="overflow: auto">
-    <form method="GET" action="#">
 
-
-      1)The capital of India is:<br><input type="text" name="t1" id="t1"><br><br>
-
-      2)The star of the Solar System is:<br><input type="text" name="t2" id="t2"><br><br>
-
-      3)1+1=<br><input type="radio" name="r1_option1" id="r1_option1">2<br><br>
-      <input type="radio" name="r1_option2" id="r1_option2">1<br><br>
-      <input type="radio" name="r1_option3" id="r1_option3">11<br><br>
-      <input type="radio" name="r1_option4" id="r1_option4">0110<br><br>
-
-      4)Continents of the world include:<br><input type="checkbox" name="c1_option1" id="c1_option1">Asia<br><br>
-      <input type="checkbox" name="c1_option2" id="c1_option2">India<br><br>
-      <input type="checkbox" name="c1_option3" id="c1_option3">Australia<br><br>
-      <input type="checkbox" name="c1_option4" id="c1_option4">China<br><br>
-
-      5)Choose for the following:<br>
-      A)Current Prime Minister of India:<br>
-      <select id="dd1" name="dd_1"><br>
-      <option value="dd1_option1">John Cena</option><br>
-      <option value="dd1_option2">Narendra Modi</option><br>
-      <option value="dd1_option3">Powerstar</option><br>
-      <option value="dd1_option4">Ram Nath Kovind</option><br>
-      </select><br><br>
-
-      B)who is the best faculty for Software Engineering?<br>
-      <select id="dd2" name="dd_2"><br>
-      <option value="dd2_option1">Ilakiyaselvan Sir</option><br>
-      <option value="dd2_option2">None</option><br>
-      </select><br>
-      <br><br>
-    
-
-    </form>
+    <h1 style="text-align: center;">Click on 'Finish Exam' once done.</h1>
+    <br/>
+    <br/>
+    <div class="w3-twothird">
+    <label for="fname">Give a detailed analysis on HCI Principles.</label><br>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="lname">Why is a mnimaistic approach important?</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
+    <label for="fname">Explain the job market in India in detail.</label><br>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="lname">What is the use of RNNs and CNNs</label><br><br>
+    <input type="text" id="lname" name="lname"><br><br>
+    <label for="fname">How many different ways can attacks be done?</label><br>
+    <input type="text" id="fname" name="fname"><br><br>
+    <label for="lname">Explain backtracking.</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
 
     <button class="submit" type="submit" name="submit" id="submit" onclick="finish()">Finish Test</button>
 
