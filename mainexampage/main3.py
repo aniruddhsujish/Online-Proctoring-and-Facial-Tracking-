@@ -94,7 +94,6 @@ def teacher_login_validation():
 
 def gen(camera,email):
     while True:
-        frame,alert = camera.get_frame()
         
         if not alert == "": 
             now = datetime.now()
@@ -106,6 +105,7 @@ def gen(camera,email):
 
 @app.route('/video_feed/<email>')
 def video_feed(email):
+
     return Response(gen(VideoCamera(),email),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
