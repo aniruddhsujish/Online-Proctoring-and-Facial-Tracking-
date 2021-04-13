@@ -94,7 +94,7 @@ def teacher_login_validation():
 
 def gen(camera,email):
     while True:
-        
+        frame,alert = camera.get_frame()
         if not alert == "": 
             now = datetime.now()
             dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
